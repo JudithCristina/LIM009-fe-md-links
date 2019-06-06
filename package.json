@@ -17,7 +17,7 @@
   "license": "ISC",
   "author": "Judith-Quiñones",
   "scripts": {
-    "eslint": "eslint --ext .js lib/ tests/ cli.js",
+    "eslint": "eslint --ext src",
     "test": "jest --coverage",
     "build": "babel lib -d src"
   },
