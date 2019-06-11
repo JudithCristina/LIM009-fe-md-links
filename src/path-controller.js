@@ -1,13 +1,13 @@
 const path = require('path')
 const fs = require('fs')
-const absolutePath = '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/src/'
+const absolutePath = '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/';
 
 
 export const validatePathAbsolute = ( absolutePath) => {
     if(path.isAbsolute( absolutePath)===true){
       return  absolutePath
     }else{
-      return  absolutePath.resolve( absolutePath)
+      return  path.resolve( absolutePath)
     }
 }
 
@@ -37,12 +37,7 @@ export const searchFileMd = ( absolutePath) => {
   return fileMd;
 }
 
-console.log(searchFileMd(absolutePath))
-console.log(validatePathAbsolute(absolutePath))
-console.log(isFile(absolutePath))
-console.log(isDirectory(absolutePath))
 console.log(readDirectory(absolutePath))
-console.log(readFile(absolutePath))
 
 //readDir('../archivos');
 //console.log(readDir('../archivos'));
@@ -87,13 +82,7 @@ console.log(readFile(absolutePath))
 export const gettingFsStatObject = (path) => {
   const stat = fs.statSync(path);
   return stat;
-};
-// gettingFsStatObject('../archivos/lucero.md');
-/*console.log(isFile('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/src/'))
-console.log(isDirectory('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/src/'))
-console.log(filePathExists(filePath))
-console.log(stats)
+};*/
 
-
-
-console.log(validatePathAbsolute('index.js'))*/
+/*console.log(validatePathAbsolute(absolutePath))
+console.log(readFile(absolutePath))*/
