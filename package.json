@@ -1,50 +1,29 @@
 {
-  "name": "judithquinones-mdlinks",
+  "name": "judithq-md-links",
   "version": "1.0.0",
-  "description": "[Markdown](https://medium.com/@itsjzt/beginner-guide-to-markdown-229adce30074) es un lenguaje de marcado\r ligero muy popular entre developers. Markdown is made by John Gruber, you can use markdown to write blogs, texts, books and practically 100% of your writing work in a single format and you can easily distribute it in Word, PDFs, EPUBs, HTML, and many other formats.",
+  "description": "md",
   "main": "index.js",
-  "keywords": [
-    "node",
-    "npm",
-    "jest",
-    "md-links",
-    "library",
-    "path"
-  ],
-  "bin": {
-    "md-links": "./src/cli.js"
+  "directories": {
+    "test": "test"
   },
-  "license": "ISC",
-  "author": "Judith-Quiñones",
   "scripts": {
-    "eslint": "eslint --ext src",
-    "test": "jest --coverage",
-    "build": "babel lib -d src"
+    "test": "jest",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
-    "bugs": {
-      "url": "https://github.com/JudithCristina/LIM009-fe-md-links/issues"
-    }
+    "url": "git+https://github.com/JudithCristina/LIM009-fe-md-links.git"
   },
+  "author": "Judith Quiñones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JudithCristina/LIM009-fe-md-links/issues"
+  },
+  "homepage": "https://github.com/JudithCristina/LIM009-fe-md-links#readme",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/node": "^7.2.2",
-    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-jest": "^24.1.0",
-    "babel-preset-env": "^1.7.0",
-    "eslint": "^5.10.0",
-    "eslint-plugin-jest": "^22.1.2",
-    "fetch-mock": "^7.3.1",
-    "jest": "^24.8.0",
-    "regenerator-runtime": "^0.13.1"
-  },
-  "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "node-fetch": "^2.3.0"
+    "jest": "^24.8.0"
   }
 }
