@@ -1,6 +1,5 @@
 import  path from 'path';
 import  fs  from 'fs';
-const absolutePath = '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/';
 
 
 export const validatePathAbsolute = ( absolutePath) => {
@@ -57,11 +56,6 @@ export const searchFileMd = ( absolutePath) => {
   return fileMd;
 }
 
-export const pathMd = (absolutePath)=>{
-  let ruta = validatePathAbsolute(absolutePath)
-  return arrayFileOfDirectory(ruta);
-
-}
 
 
 
