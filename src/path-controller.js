@@ -62,8 +62,6 @@ export const pathMd = (absolutePath)=>{
   return arrayFileOfDirectory(ruta);
 
 }
-console.log(pathMd(absolutePath))
-
 
 
 
