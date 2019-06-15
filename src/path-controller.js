@@ -1,5 +1,5 @@
-const path = require('path')
-const fs = require('fs')
+import  path from 'path';
+import  fs  from 'fs';
 const absolutePath = '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/';
 
 
@@ -25,19 +25,48 @@ export const readFile = ( absolutePath) => {
   const fileContent = fs.readFileSync( absolutePath, 'utf8')
   return fileContent;
 };
-//console.log(readFile('../archivos/lucero.md'));
 
 export const readDirectory = ( absolutePath) => {
   const arrayOfFile= fs.readdirSync( absolutePath, 'utf8');
-  return arrayOfFile;
-};
+  let array1=arrayOfFile.map(file => path.join(absolutePath,file))
+ /*let array2= array1.map(file => {if(isDirectory(file)===true) {
+   console.log(file)*/
+   return array1;
+}
 
+
+export const arrayFileOfDirectory = (absolutePath) => {
+  let array = [];
+  if(isFile(absolutePath)){
+    if(searchFileMd(absolutePath)){
+      array.push(absolutePath)
+    }
+  }
+  else{
+  let dir  = fs.readdirSync(absolutePath)
+  dir.forEach((file) => {
+  let arrayTotal=arrayFileOfDirectory(path.join(absolutePath,file))
+  array= array.concat(arrayTotal)
+  })
+  }
+  return array;
+}
+ 
 export const searchFileMd = ( absolutePath) => {
   let fileMd= path.extname( absolutePath) === '.md'
   return fileMd;
 }
 
-console.log(readDirectory(absolutePath))
+export const pathMd = (absolutePath)=>{
+  let ruta = validatePathAbsolute(absolutePath)
+  return arrayFileOfDirectory(ruta);
+
+}
+console.log(pathMd(absolutePath))
+
+
+
+
 
 //readDir('../archivos');
 //console.log(readDir('../archivos'));

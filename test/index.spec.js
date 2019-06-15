@@ -19,6 +19,13 @@ describe('funcion  que permite saber si la ruta es de un archivo', () => {
   it('deberia retornar false si no es un archivo', () => {
 	  expect(isFile('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/src/')).toBe(false);
   });
+  it("deberia retornar un error si no existe",() =>{
+    try {
+      isFile("JUDITHCRISTINA")
+    } catch(err){
+      expect(err.code).toBe('ENOENT')
+    }
+  })
 });
 
 describe('funcion  que permite saber si la ruta es un directorio', () => {
@@ -28,6 +35,13 @@ describe('funcion  que permite saber si la ruta es un directorio', () => {
   it('deberia retornar false si no es un directorio', () => {
 	  expect(isDirectory('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/src/index.js')).toBe(false);
   });
+  it("deberia retornar un error si no existe",() =>{
+    try {
+      isFile("JUDITHCRISTINA")
+    } catch(err){
+      expect(err.code).toBe('ENOENT')
+    }
+  })
 });
 
 describe('funcion  que permite leer un archivo', () => {
