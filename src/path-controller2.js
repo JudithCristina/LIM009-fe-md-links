@@ -24,8 +24,9 @@ export let pathMdLinks = (path1)=>{
 
 export const validateLinks = (path1) => {
   let arrayLinks = pathMdLinks(path1).map(link=> {
-    return fetch(link.href).then(res=>{
-    if(res.status === 200){
+    return fetch(link.href)
+    .then(res=>{
+    if(res.status >= 399){
       link.code= res.status;
       link.status = res.statusText;
     } else {
@@ -34,17 +35,26 @@ export const validateLinks = (path1) => {
     }
     return link
     })
+    .catch(e=>{
+      link.code= e.code;
+      link.status = "Fail";
+    return link
+    })
+
   })
   return Promise.all(arrayLinks)
 }
   
 
-/*console.log(validateLinks(path1))
+console.log(validateLinks(path1))
 
 validateLinks(path1)
   .then(result=>{
 console.log(result);
-  })*/
+  })
+  .catch(e=>{
+    console.log(e);
+      })
 
   
 
