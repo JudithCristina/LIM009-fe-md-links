@@ -46,7 +46,7 @@ export const validateLinks = (path1) => {
 }
   
 
-console.log(validateLinks(path1))
+/*console.log(validateLinks(path1))
 
 validateLinks(path1)
   .then(result=>{
@@ -54,7 +54,7 @@ console.log(result);
   })
   .catch(e=>{
     console.log(e);
-      })
+      })*/
 
   
 
