@@ -1,7 +1,7 @@
 
 import {validatePathAbsolute} from './path-controller.js';
-import {pathMdLinks} from './path-controller2.js';
-import {validateLinks} from './path-controller2.js';
+import {pathMdLinks} from './validate.js';
+import {validateLinks} from './validate.js';
 import {arrayFileOfDirectory} from './path-controller.js';
 
 const fs = require('fs');
@@ -34,7 +34,7 @@ export const mdLinks =(path, options)=>{
   }  
 
 
-    mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/src', {validate: false})
+    mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/hk', {validate: false})
     .then((result)=>{
      console.log(result)
     })

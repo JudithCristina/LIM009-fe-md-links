@@ -1,7 +1,7 @@
 import  path from 'path';
 import  fs  from 'fs';
 
-export const itExists = inputPath => fs.existsSync(inputPath);
+const path1= '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica'
 
 export const validatePathAbsolute = ( absolutePath) => {
     if(path.isAbsolute( absolutePath)===true){
@@ -36,6 +36,10 @@ export const readDirectory = ( absolutePath) => {
    return array1;
 }
 
+export const searchFileMd = (absolutePath) => {
+  let fileMd= path.extname( absolutePath) === '.md'
+  return fileMd;
+}
 
 export const arrayFileOfDirectory = (absolutePath) => {
   let array = [];
@@ -53,8 +57,6 @@ export const arrayFileOfDirectory = (absolutePath) => {
   }
   return array;
 }
+
+console.log(arrayFileOfDirectory(path1))
  
-export const searchFileMd = ( absolutePath) => {
-  let fileMd= path.extname( absolutePath) === '.md'
-  return fileMd;
-}

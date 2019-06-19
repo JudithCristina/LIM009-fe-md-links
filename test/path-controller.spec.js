@@ -1,4 +1,6 @@
-import { validatePathAbsolute, isFile, isDirectory, readFile, readDirectory, searchFileMd} from '../src/path-controller.js';
+import { validatePathAbsolute, isFile, isDirectory, readFile, readDirectory, searchFileMd, arrayFileOfDirectory} from '../src/path-controller.js';
+import  path from 'path';
+import  fs  from 'fs';
 
 describe('Función que retorna una ruta absoluta', () => {
   it('validatePathAbsolute debería ser una función', () => {
@@ -52,23 +54,43 @@ describe('funcion  que permite leer un archivo', () => {
 
 describe('funcion  que retornar una array de rutas dentro del directorio', () => {
   it('deberia retornar un array de rutas de un directorio', () => {
-    expect(readDirectory('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/')).toEqual([ '.babelrc',
-    '.git',
-    'README.md',
-    'coverage',
-    'lib',
-    'node_modules',
-    'package.json',
-    'src',
-    'test' ]);
+    expect(readDirectory('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/')).toEqual([  "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/.babelrc",
+     "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/.git",
+    "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md",
+    "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/coverage",
+    "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/lib",
+    "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/node_modules",
+    "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/package.json",
+    "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica",
+    "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/src",
+    "/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/test" ]);
   })
 });
 
 describe('funcion  que permite buscar un archivo md', () => {
   it('deberia retornar true si  es un archivo md', () => {
-	  expect(searchFileMd('home/judith-c-q-i/Escritorio/LIM009-fe-md-links/test/practica2.md')).toBe(true);
+	  expect(searchFileMd('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/test/practica2.md')).toBe(true);
   });
   it('deberia retornar false si no es un archivo', () => {
-	  expect(searchFileMd('home/judith-c-q-i/Escritorio/LIM009-fe-md-links/test/practica.js')).toBe(false);
+	  expect(searchFileMd('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/test/practica.js')).toBe(false);
   });
 });
+
+
+const arrayOfFile=[ '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica/practica1.md' ]
+const arrayOfFileOfDirectory= [ 
+'/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica/practica1/practica2.md',
+'/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica/practica1/practica3.md',
+'/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica/practica1.md',
+'/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica/practica2.md' ]
+
+describe('funcion  que retorna un array de rutas absoluta de directorios y archivos', () => {
+  it('deberia retornar un array de la ruta md,  si el argumento es una ruta de  archivo' , () => {
+	  expect(arrayFileOfDirectory('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica/practica1.md')).toEqual(arrayOfFile);
+  });
+  it('deberia retornar un array de todas las rutas en archivos si el argumento es una ruta de archivo', () => {
+	  expect(arrayFileOfDirectory('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica')).toEqual(arrayOfFileOfDirectory);
+  });
+});
+
+
