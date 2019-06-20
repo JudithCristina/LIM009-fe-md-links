@@ -58,5 +58,5 @@ export const arrayFileOfDirectory = (absolutePath) => {
   return array;
 }
 
-console.log(arrayFileOfDirectory(path1))
+/*console.log(arrayFileOfDirectory(path1))*/
  

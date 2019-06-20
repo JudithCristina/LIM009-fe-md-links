@@ -54,7 +54,7 @@ describe('funcion  que permite obtener  los links, texto y ruta de ubicación de
       { href: 'https://youtuber.com',
         text: 'a link',
         file: '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica/practica1/practica3.md',
-        code: 'ECONNRESET',
+        code: 'ECONNRESEThh',
         status: 'Fail' },
       { href: 'https://github.com/JudithCristina',
         text: 'mi github',

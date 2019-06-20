@@ -8,23 +8,21 @@ const fs = require('fs');
 const path = require('path');
 
 export const mdLinks =(path, options)=>{
-    return new Promise((resolve,rejects) =>{
-  if(fs.statSync(path)){
+    return new Promise(resolve =>{
       let arrayFile=arrayFileOfDirectory(path)
-      if(validatePathAbsolute(path) && options.validate ===false ){
+      if(validatePathAbsolute(path) && (!options || options.validate === false) ){
         if(arrayFile.length!==0){
           resolve(pathMdLinks(path));
         } else {
           resolve('No se encontraron archivos.md')
         }
-      } else if (validatePathAbsolute(path) && options.validate===true ){
+      } else if (validatePathAbsolute(path) && options.validate===true  ){
         if(arrayFile.length!==0){
           resolve(validateLinks(path))
         } else {
           resolve('No se encontraron archivos.md')
       }  
     }
-  }
     })
     .catch(e=> 
      { if(e.code === "ENOENT"){
@@ -34,11 +32,10 @@ export const mdLinks =(path, options)=>{
   }  
 
 
-    mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/hk', {validate: false})
+     /*mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica')
     .then((result)=>{
      console.log(result)
     })
      .catch((e)=>{
       console.log(e)
-    })
-  
+    })*/

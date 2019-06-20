@@ -22,7 +22,7 @@ export let pathMdLinks = (path1)=>{
     return arrObj;
 }
 
- console.log(pathMdLinks(path1))
+ /*console.log(pathMdLinks(path1))*/
 
 export const validateLinks = (path1) => {
   let arrayLinks = pathMdLinks(path1).map(link=> {
