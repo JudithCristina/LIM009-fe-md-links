@@ -8,7 +8,8 @@ const fs = require('fs');
 const path = require('path');
 
 export const mdLinks =(path, options)=>{
-    return new Promise(resolve =>{
+    return new Promise((resolve,reject)=>{
+    try{
       let arrayFile=arrayFileOfDirectory(path)
       if(validatePathAbsolute(path) && (!options || options.validate === false) ){
         if(arrayFile.length!==0){
@@ -22,17 +23,17 @@ export const mdLinks =(path, options)=>{
         } else {
           resolve('No se encontraron archivos.md')
       }  
-    }
-    })
-    .catch(e=> 
+    }  }
+    catch(e)
      { if(e.code === "ENOENT"){
-      return("ruta incorrecta")
+      reject("ruta incorrecta")
       }}
-    )
-  }  
+  })
+}
+    
 
 
-     /*mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica')
+   /* mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica')
     .then((result)=>{
      console.log(result)
     })

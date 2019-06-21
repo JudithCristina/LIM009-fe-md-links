@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>12/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">86.67% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>13/15</span>
+        <span class='fraction'>9/15</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>12/16</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -86,7 +86,8 @@
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -96,25 +97,26 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,31 +138,32 @@ const fs = require('fs');
 const path = require('path');
 &nbsp;
 export const mdLinks =(path, options)=&gt;{
-    return new Promise(resolve =&gt;{
+    return new Promise((resolve,reject)=&gt;{
+    try{
       let arrayFile=arrayFileOfDirectory(path)
-      if(validatePathAbsolute(path) &amp;&amp; (!options || options.validate === false) ){
-        if(arrayFile.length!==0){
-          resolve(pathMdLinks(path));
+      <span class="missing-if-branch" title="if path not taken" >I</span>if(validatePathAbsolute(path) &amp;&amp; (!options || options.validate === false) ){
+<span class="cstat-no" title="statement not covered" >        if(arrayFile.length!==0){</span>
+<span class="cstat-no" title="statement not covered" >          resolve(pathMdLinks(path));</span>
         } else {
-          resolve('No se encontraron archivos.md')
+<span class="cstat-no" title="statement not covered" >          resolve('No se encontraron archivos.md')</span>
         }
       } else <span class="missing-if-branch" title="else path not taken" >E</span>if (validatePathAbsolute(path) &amp;&amp; options.validate===true  ){
-        if(arrayFile.length!==0){
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(arrayFile.length!==0){
           resolve(validateLinks(path))
         } else {
-          resolve('No se encontraron archivos.md')
+<span class="cstat-no" title="statement not covered" >          resolve('No se encontraron archivos.md')</span>
       }  
-    }
-    })
-    .catch(e=&gt; 
+    }  }
+    catch(e)
      { <span class="missing-if-branch" title="else path not taken" >E</span>if(e.code === "ENOENT"){
-      return("ruta incorrecta")
+      reject("ruta incorrecta")
       }}
-    )
-  }  
+  })
+}
+    
 &nbsp;
 &nbsp;
-     /*mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica')
+    /* mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica')
     .then((result)=&gt;{
      console.log(result)
     })
@@ -172,7 +175,7 @@ export const mdLinks =(path, options)=&gt;{
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 19 2019 18:06:31 GMT-0500 (-05)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 20 2019 19:33:42 GMT-0500 (-05)
 </div>
 </div>
 <script src="prettify.js"></script>

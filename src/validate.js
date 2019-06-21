@@ -28,18 +28,18 @@ export const validateLinks = (path1) => {
   let arrayLinks = pathMdLinks(path1).map(link=> {
     return fetch(link.href)
     .then(res=>{
-    if(res.status >= 399){
+    if(res.status <= 399){
       link.code= res.status;
       link.status = res.statusText;
     } else {
     link.code= res.status;
-    link.status = res.statusText;
+    link.status= 'Fail';
     }
     return link
     })
     .catch(e=>{
       link.code= e.code;
-      link.status = "Fail";
+      link.status = 'Fail';
     return link
     })
 
@@ -57,6 +57,7 @@ console.log(result);
   .catch(e=>{
     console.log(e);
       })*/
+
 
   
 
