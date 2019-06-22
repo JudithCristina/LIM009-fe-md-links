@@ -1,7 +1,7 @@
 {
   "name": "judithq-md-links",
-  "version": "1.0.0",
-  "description": "md",
+  "version": "1.0.1",
+  "description": "md-linnks",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -29,5 +29,8 @@
   "dependencies": {
     "marked": "^0.6.2",
     "node-fetch": "^2.6.0"
+  },
+  "bin": {
+    "md-links": "./lib/index.js"
   }
 }
