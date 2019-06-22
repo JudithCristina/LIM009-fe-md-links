@@ -1,5 +1,5 @@
-import {pathMdLinks} from './validate.js';
-const path1= '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica'
+import { pathMdLinks } from './validate.js';
+const path1 = '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica'
 
 const arrayOfObj = [{
   href: 'https://github.com/user/repo/blob/branch/other_file.md',
@@ -35,19 +35,19 @@ const arrayOfObj = [{
 
 
 export const getStatLinks = (arrayOfObj) => {
-    let arrayOfUrls = arrayOfObj.map(element =>{
-      return element.href;
-      })
-    let linksUnike= Array.from(new Set(arrayOfUrls))
-    return {
-        total: arrayOfUrls.length,
-        unique:linksUnike.length
+  let arrayOfUrls = arrayOfObj.map(element => {
+    return element.href;
+  })
+  let linksUnike = Array.from(new Set(arrayOfUrls))
+  return {
+    total: arrayOfUrls.length,
+    unique: linksUnike.length
+  }
 }
-}
 
 
 
-export const getValidateStatLinks = (arrayOfObj)=> {
+export const getValidateStatLinks = (arrayOfObj) => {
   let arrayOfUrls = arrayOfObj.map(function (element) {
     return element.href;
   });
