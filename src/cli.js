@@ -6,11 +6,6 @@ let route = process.argv[2]
 let parameter2 = process.argv[3]
 let parameter3 = process.argv[4]
 
-
-
-
-
-
 export const mdLinksCli = (route, parameter2, parameter3) => {
     if (route !== undefined && parameter2 == undefined && parameter3 == undefined) {
         return mdLinks(route, { validate: false })
@@ -70,14 +65,16 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
                 return chalk.red(e)
             })
     } else {
-        return chalk.red(`Corregir argumentos (path, --validate, --stats)\n`)
+        return mdLinks(route, { validate: true })
+            .then(result1 => {
+                return chalk.red(`Corregir argumentos (path, --validate, --stats)\n`)
+            }
+            )
     }
 }
 
 
-/*onsole.log(mdLinksCli(route,parameter2,parameter3))
-
-mdLinksCli(route,parameter2,parameter3)
+/*mdLinksCli(route,parameter2,parameter3)
    .then((result)=>{
     console.log(result)
    })
@@ -86,5 +83,3 @@ mdLinksCli(route,parameter2,parameter3)
    })*/
 
 
-/*mdLinks(route, {validate: true})
-.then(result => console.log(getStatLinks(result)))*/
