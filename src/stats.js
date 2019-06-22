@@ -40,14 +40,14 @@ export const getStatLinks = (arrayOfObj) => {
       })
     let linksUnike= Array.from(new Set(arrayOfUrls))
     return {
-        Total: arrayOfUrls.length,
-        Unicos:linksUnike.length
+        total: arrayOfUrls.length,
+        unique:linksUnike.length
 }
 }
 
 
 
-const getValidateStatLinks = (arrayOfObj)=> {
+export const getValidateStatLinks = (arrayOfObj)=> {
   let arrayOfUrls = arrayOfObj.map(function (element) {
     return element.href;
   });
@@ -56,11 +56,11 @@ const getValidateStatLinks = (arrayOfObj)=> {
     return element.status == 'Fail';
   });
   return {
-    Total: arrayOfUrls.length,
-    Unicos: linksUnike.length,
-    Broken: arrayOfUrlsBrocken.length
+    total: arrayOfUrls.length,
+    unique: linksUnike.length,
+    broken: arrayOfUrlsBrocken.length
   };
 };
 
-console.log(getStatLinks(arrayOfObj));
-console.log(getValidateStatLinks(arrayOfObj));
+/*console.log(getStatLinks(arrayOfObj));
+console.log(getValidateStatLinks(arrayOfObj));*/

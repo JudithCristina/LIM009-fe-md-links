@@ -1,4 +1,4 @@
-
+const chalk = require('chalk');
 import {validatePathAbsolute} from './path-controller.js';
 import {arrayFileOfDirectory} from './path-controller.js';
 import {readFile} from './path-controller.js';
