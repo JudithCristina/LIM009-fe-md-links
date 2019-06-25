@@ -11,7 +11,7 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
         return mdLinks(route, { validate: false })
             .then(result => {
                 if (typeof result === 'string') {
-                    return chalk.red(result)
+                    return chalk.red.bold(result)
                 }
                 else {
                     const newArray = result.map(element => {
@@ -22,13 +22,13 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
                 }
 
             }).catch(e => {
-                return chalk.red(e)
+                return chalk.red.bold(e)
             })
     } else if (route !== undefined && parameter2 == '--validate' && parameter3 == undefined) {
         return mdLinks(route, { validate: true })
             .then(result => {
                 if (typeof result === 'string') {
-                    return chalk.red(result)
+                    return chalk.red.bold(result)
                 } else {
                     const newArray = result.map(element => {
                         return `href:${element.href}\ntext:[${element.text}]\nfile:${element.file}\ncode:${element.code}\nstatus:${element.status}\n`
@@ -37,49 +37,49 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
                     return routeCli
                 }
             }).catch(e => {
-                return chalk.red(e)
+                return chalk.red.bold(e)
             })
     } else if (route !== undefined && parameter2 == '--stats' && parameter3 == undefined) {
         return mdLinks(route, { validate: true })
             .then(result1 => {
                 if (typeof result1 === 'string') {
-                    return chalk.red(result1)
+                    return chalk.red.bold(result1)
                 } else {
                     let stats = getStatLinks(result1)
                     return `Total: ${stats.total}\nUnique: ${stats.unique}`
                 }
             })
             .catch(e => {
-                return chalk.red(e)
+                return chalk.red.bold(e)
             })
     } else if (route !== undefined && parameter2 == '--validate' && parameter3 == '--stats') {
         return mdLinks(route, { validate: true })
             .then(result1 => {
                 if (typeof result1 === 'string') {
-                    return chalk.red(result1)
+                    return chalk.red.bold(result1)
                 } else {
                     let stat = getValidateStatLinks(result1)
                     return `Total: ${stat.total}\nUnique: ${stat.unique}\nBroken: ${stat.broken}`
                 }
             }).catch(e => {
-                return chalk.red(e)
+                return chalk.red.bold(e)
             })
     } else {
         return mdLinks(route, { validate: true })
             .then(result1 => {
-                return chalk.red(`Corregir argumentos (path, --validate, --stats)\n`)
+                return chalk.red.bold(`Corregir argumentos (path, --validate, --stats)\n`)
             }
             )
     }
 }
 
 
-mdLinksCli(route,parameter2,parameter3)
+/*mdLinksCli(route,parameter2,parameter3)
    .then((result)=>{
     console.log(result)
    })
     .catch((e)=>{
      console.log(e)
-   })
+   })*/
 
 

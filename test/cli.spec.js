@@ -57,33 +57,67 @@ describe('funcion  que permite obtener --validate, --stads', () => {
     });
     it("Debería  retornar  un  string 'No se encontraron archivos.md'", () => {
         return mdLinksCli(path.join(process.cwd(), 'demo')).then((response) => {
-          expect(response).toBe(chalk.red('No se encontraron archivos.md'))
+          expect(response).toBe(chalk.red.bold('No se encontraron archivos.md'))
         })
       });
-
+    it("Debería  retornar  un error si la ruta es incorrecta", () => {
+        return mdLinksCli(path.join(process.cwd(), 'examen')).catch((e) => {
+          expect(e).toEqual(chalk.red.bold('Ruta incorrecta'))
+        })
+    });
    it('Debería  retornar  un link con propiedad href,text,file,code y status', () => {
       return mdLinksCli(path.join(process.cwd(), 'prueba'), '--validate').then((response) => {
         expect(response).toEqual(`href:https://youtube.com\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba1.md')}\ncode:200\nstatus:OK\n\nhref:https://github.com/user/repo/blob/branch/other_file.md\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2','judith.md')}\ncode:404\nstatus:Fail\n\nhref:https://github.com/Judith//-\ntext:[mi github]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:404\nstatus:Fail\n\nhref:https://github.com/Judith\ntext:[github Judith]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:200\nstatus:OK\n`)
       })
+    });
+    it("Debería  retornar  un  string 'No se encontraron archivos.md'", () => {
+        return mdLinksCli(path.join(process.cwd(), 'demo'),'--validate').then((response) => {
+          expect(response).toBe(chalk.red.bold('No se encontraron archivos.md'))
+        })
+      });
+    it("Debería  retornar  un error si la ruta es incorrecta", () => {
+        return mdLinksCli(path.join(process.cwd(), 'examen'),'--validate').catch((e) => {
+          expect(e).toEqual(chalk.red.bold('Ruta incorrecta'))
+        })
     });
     it('Debería  retornar  Total y Unique de links', () => {
       return mdLinksCli(path.join(process.cwd(), 'prueba'), '--stats').then((response) => {
         expect(response).toEqual(`Total: 4\nUnique: 4`)
       })
     })
+    it("Debería  retornar  un  string 'No se encontraron archivos.md'", () => {
+        return mdLinksCli(path.join(process.cwd(), 'demo'),'--stats').then((response) => {
+          expect(response).toBe(chalk.red.bold('No se encontraron archivos.md'))
+        })
+      });
+    it("Debería  retornar  un error si la ruta es incorrecta", () => {
+        return mdLinksCli(path.join(process.cwd(), 'examen'),'--stats').catch((e) => {
+          expect(e).toEqual(chalk.red.bold('Ruta incorrecta'))
+        })
+    });
     it('Debería  retornar  Total, Unique, Brocken de links', () => {
       return mdLinksCli(path.join(process.cwd(), 'prueba'), '--validate','--stats').then((response) => {
         expect(response).toEqual(`Total: 4\nUnique: 4\nBroken: 2`)
       })
     })
+    it("Debería  retornar  un  string 'No se encontraron archivos.md'", () => {
+        return mdLinksCli(path.join(process.cwd(), 'demo'),'--validate','--stats').then((response) => {
+          expect(response).toBe(chalk.red.bold('No se encontraron archivos.md'))
+        })
+      });
+    it("Debería  retornar  un error si la ruta es incorrecta", () => {
+        return mdLinksCli(path.join(process.cwd(), 'examen'),'--validate','--stats').catch((e) => {
+          expect(e).toEqual(chalk.red.bold('Ruta incorrecta'))
+        })
+    });
     it("Debería  retornar  un string `Corregir argumentos (path, --validate, --stats)\n`", () => {
         return mdLinksCli(path.join(process.cwd(), 'prueba'), '--validates','--statts').then((response) => {
-          expect(response).toEqual(chalk.red(`Corregir argumentos (path, --validate, --stats)\n`))
+          expect(response).toEqual(chalk.red.bold(`Corregir argumentos (path, --validate, --stats)\n`))
         })
       })
       it("Debería  retornar  un error si la ruta es incorrecta", () => {
-        return mdLinksCli(path.join(process.cwd(), 'examen'), '--validate','--stats').catch((e) => {
-          expect(e).toEqual(chalk.red('Ruta incorrecta'))
+        return mdLinksCli(path.join(process.cwd(), 'examen','practica.js'), '--validate','--stats').catch((e) => {
+          expect(e).toEqual(chalk.red.bold('Ruta incorrecta'))
         })
       })
   })
