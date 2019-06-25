@@ -1,4 +1,3 @@
-import { pathMdLinks } from './validate.js';
 const path1 = '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica'
 
 const arrayOfObj = [{

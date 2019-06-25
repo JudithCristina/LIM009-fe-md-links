@@ -46,7 +46,7 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
                     return chalk.red(result1)
                 } else {
                     let stats = getStatLinks(result1)
-                    return `Total: ${stats.total} \nUnique: ${stats.unique} \n`
+                    return `Total: ${stats.total}\nUnique: ${stats.unique}`
                 }
             })
             .catch(e => {
@@ -59,7 +59,7 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
                     return chalk.red(result1)
                 } else {
                     let stat = getValidateStatLinks(result1)
-                    return `Total: ${stat.total} \nUnique: ${stat.unique} \nBroken:${stat.broken}`
+                    return `Total: ${stat.total}\nUnique: ${stat.unique}\nBroken: ${stat.broken}`
                 }
             }).catch(e => {
                 return chalk.red(e)
@@ -74,12 +74,12 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
 }
 
 
-/*mdLinksCli(route,parameter2,parameter3)
+mdLinksCli(route,parameter2,parameter3)
    .then((result)=>{
     console.log(result)
    })
     .catch((e)=>{
      console.log(e)
-   })*/
+   })
 
 

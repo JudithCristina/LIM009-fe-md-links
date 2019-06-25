@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/16</span>
+        <span class='fraction'>16/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">93.33% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>9/15</span>
+        <span class='fraction'>14/15</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,16 +35,16 @@
         <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/16</span>
+        <span class='fraction'>16/16</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -87,35 +87,39 @@
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
 <a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,53 +133,55 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-import {validatePathAbsolute} from './path-controller.js';
-import {pathMdLinks} from './validate.js';
-import {validateLinks} from './validate.js';
-import {arrayFileOfDirectory} from './path-controller.js';
+import { validatePathAbsolute } from './path-controller.js';
+import { pathMdLinks } from './validate.js';
+import { validateLinks } from './validate.js';
+import { arrayFileOfDirectory } from './path-controller.js';
 &nbsp;
 const fs = require('fs');
 const path = require('path');
 &nbsp;
-export const mdLinks =(path, options)=&gt;{
-    return new Promise((resolve,reject)=&gt;{
-    try{
-      let arrayFile=arrayFileOfDirectory(path)
-      <span class="missing-if-branch" title="if path not taken" >I</span>if(validatePathAbsolute(path) &amp;&amp; (!options || options.validate === false) ){
-<span class="cstat-no" title="statement not covered" >        if(arrayFile.length!==0){</span>
-<span class="cstat-no" title="statement not covered" >          resolve(pathMdLinks(path));</span>
+export const mdLinks = (path, options) =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    try {
+      let arrayFile = arrayFileOfDirectory(path)
+      if (validatePathAbsolute(path) &amp;&amp; (!options || options.validate === false)) {
+        if (arrayFile.length !== 0) {
+          resolve(pathMdLinks(path));
         } else {
-<span class="cstat-no" title="statement not covered" >          resolve('No se encontraron archivos.md')</span>
+          resolve('No se encontraron archivos.md')
         }
-      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (validatePathAbsolute(path) &amp;&amp; options.validate===true  ){
-        <span class="missing-if-branch" title="else path not taken" >E</span>if(arrayFile.length!==0){
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (validatePathAbsolute(path) &amp;&amp; options.validate === true) {
+        if (arrayFile.length !== 0) {
           resolve(validateLinks(path))
         } else {
-<span class="cstat-no" title="statement not covered" >          resolve('No se encontraron archivos.md')</span>
-      }  
-    }  }
-    catch(e)
-     { <span class="missing-if-branch" title="else path not taken" >E</span>if(e.code === "ENOENT"){
-      reject("ruta incorrecta")
-      }}
+          resolve('No se encontraron archivos.md')
+        }
+      }
+    }
+    catch (e) {
+      if (e.code === "ENOENT") {
+        reject("Ruta incorrecta")
+      }
+    }
   })
 }
-    
 &nbsp;
 &nbsp;
-   /* mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica')
-    .then((result)=&gt;{
-     console.log(result)
-    })
-     .catch((e)=&gt;{
-      console.log(e)
-    })*/</pre></td></tr>
+&nbsp;
+/* mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica')
+ .then((result)=&gt;{
+  console.log(result)
+ })
+  .catch((e)=&gt;{
+   console.log(e)
+ })*/</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 21 2019 18:18:15 GMT-0500 (-05)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 25 2019 17:30:41 GMT-0500 (-05)
 </div>
 </div>
 <script src="prettify.js"></script>
