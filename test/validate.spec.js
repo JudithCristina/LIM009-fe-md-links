@@ -1,4 +1,4 @@
-import { pathMdLinks, validateLinks} from '../src/validate.js';
+/*import { pathMdLinks, validateLinks} from '../src/validate.js';
 
 describe('funcion  que permite obtener  los links, texto y ruta de ubicación de un archivo.md', () => {
     it('Debería  retornar  un array de objetos(c/object representa un link con propiedad href,text y file)', () => {
@@ -69,4 +69,4 @@ describe('funcion  que permite obtener  los links, texto y ruta de ubicación de
       })
    });
 
-  });
+  });*/

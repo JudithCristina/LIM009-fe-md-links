@@ -1,5 +1,5 @@
 
-import { mdLinks} from '../src/md-links';
+/*import { mdLinks} from '../src/md-links';
 
 describe('funcion  que permite obtener  la información de validacion si lo solicitamos', () => {
     it('Debería  retornar  un array de objetos(c/object representa un link con propiedad href,text,file, code y status; si mi validación es true)', () => {
@@ -36,3 +36,4 @@ it('Debería  retornar  un string ""ruta incorrecta"" si la ruta es incorrecta',
     }
   })
 })
+*/
