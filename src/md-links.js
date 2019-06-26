@@ -5,6 +5,7 @@ import { validateLinks } from './validate.js';
 import { arrayFileOfDirectory } from './path-controller.js';
 import chalk from 'chalk';
 
+
 export const mdLinks = (path, options) => {
   return new Promise((resolve, reject) => {
     try {

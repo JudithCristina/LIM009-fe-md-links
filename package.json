@@ -5,6 +5,7 @@
   "main": "./lib/md-links.js",
   "directories": {
     "test": "test"
+    
   },
   "scripts": {
     "test": "jest --coverage",

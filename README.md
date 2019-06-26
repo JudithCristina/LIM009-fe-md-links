@@ -53,6 +53,64 @@ md-links <path> <options>
   - `--stats`: estas opción muestran estadísticas de los links(existentes y únicos)
 Al combinar las opciones mostrará la cantidad de links que hay, los rotos y  únicos.
 ****
+### JavaScript API
+
+El módulo se puede importar en otros scripts de Node.js y  ofrece la
+siguiente interfaz:
+
+#### `mdLinks(path, options)`
+
+##### Argumentos
+
+- `path`: Ruta absoluta o relativa al archivo o directorio. Si la ruta pasada es
+  relativa, se resuelve como relativa al directorio desde donde se invoca
+  node - _current working directory_).
+- `options`: Un objeto con las siguientes propiedades:
+  * `validate`: Booleano que determina si se desea validar los links
+    encontrados.
+
+##### Valor de retorno
+
+La función retorna una promesa (`Promise`) que resuelve a un arreglo
+(`Array`) de objetos (`Object`), donde cada objeto representa un link y contiene
+las siguientes propiedades:
+
+- `href`: URL encontrada.
+- `text`: Texto que aparecía dentro del link (`[]`).
+- `file`: Ruta del archivo donde se encontró el link.
+
+#### Ejemplo
+
+```js
+import {mdLinks} from 'judithq-md-links'
+
+mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md')
+ .then((result)=>{
+  console.log(result)
+ })
+  .catch((e)=>{
+   console.log(e)
+ })
+
+ mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {validate:true})
+ .then((result)=>{
+  console.log(result)
+ })
+  .catch((e)=>{
+   console.log(e)
+ })
+
+mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {validate:false})
+ .then((result)=>{
+  console.log(result)
+ })
+  .catch((e)=>{
+   console.log(e)
+ })
+```
+
+
+
 ## CLI (Línea de comandos)
  ```
 md-links <path> <options>
@@ -110,7 +168,16 @@ Total: 3
 Unique: 3
 Broken: 1
 ```
+##### `Casos de error`
 
+Si ingresamos una ruta inválida, se podrá leer el mensaje:
+```sh
+ `Ruta incorrecta`
+ ```
+Si se ingresa una ruta en la que no se encuentren archivos con extensión -md se podrá leer el mensaje:
+```sh
+ `No se encontraron archivos .md` 
+ ```
 #### Autor
 Judith Cristina Quiñones Inga
 ****
