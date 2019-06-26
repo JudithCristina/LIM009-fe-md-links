@@ -64,7 +64,6 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
     }
 }
 
-
 /*mdLinksCli(route,parameter2,parameter3)
    .then((result)=>{
     console.log(result)

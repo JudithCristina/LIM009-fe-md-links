@@ -63,7 +63,7 @@ describe('funcion  que permite obtener --validate, --stads', () => {
       });
    it('Debería  retornar  un link con propiedad href,text,file,code y status', () => {
       return mdLinksCli(path.join(process.cwd(), 'prueba'), '--validate').then((response) => {
-        expect(response).toEqual(`href:https://youtube.com\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba1.md')}\ncode:200\nstatus:OK\n\nhref:https://github.com/user/repo/blob/branch/other_file.md\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2','judith.md')}\ncode:404\nstatus:Fail\n\nhref:https://github.com/Judith//-\ntext:[mi github]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:404\nstatus:Fail\n\nhref:https://github.com/Judith\ntext:[github Judith]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:200\nstatus:OK\n`)
+        expect(response).toEqual(`href:https://youtube.com\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba1.md')}\ncode:${chalk.green.bold(200)}\nstatus:${chalk.green.bold('OK')}\n\nhref:https://github.com/user/repo/blob/branch/other_file.md\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2','judith.md')}\ncode:${chalk.red.bold(404)}\nstatus:${chalk.red.bold('Fail')}\n\nhref:https://github.com/Judith//-\ntext:[mi github]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:${chalk.red.bold(404)}\nstatus:${chalk.red.bold('Fail')}\n\nhref:https://github.com/Judith\ntext:[github Judith]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:${chalk.green.bold(200)}\nstatus:${chalk.green.bold('OK')}\n`)
       })
     });
     it("Debería  retornar  un  string 'No se encontraron archivos.md'", () => {
@@ -81,9 +81,10 @@ describe('funcion  que permite obtener --validate, --stads', () => {
           expect(response).toBe(chalk.red.bold('No se encontraron archivos.md'))
         })
       });
-    it('Debería  retornar  Total, Unique, Brocken de links', () => {
-      return mdLinksCli(path.join(process.cwd(), 'prueba'), '--validate','--stats').then((response) => {
+    it('Debería  retornar  Total, Unique, Brocken de links', (done) => {
+      return mdLinksCli(path.join(process.cwd(),'prueba'), '--validate','--stats').then((response) => {
         expect(response).toEqual(`Total: 4\nUnique: 4\nBroken: 2`)
+        done()
       })
     })
     it("Debería  retornar  un  string 'No se encontraron archivos.md'", () => {

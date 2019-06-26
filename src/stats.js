@@ -1,5 +1,5 @@
 const path1 = '/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica'
-
+import chalk from 'chalk';
 const arrayOfObj = [{
   href: 'https://github.com/user/repo/blob/branch/other_file.md',
   text: 'a link',
@@ -52,7 +52,7 @@ export const getValidateStatLinks = (arrayOfObj) => {
   });
   let linksUnike = Array.from(new Set(arrayOfUrls));
   let arrayOfUrlsBrocken = arrayOfObj.filter(function (element) {
-    return element.status == 'Fail';
+    return element.status == chalk.red.bold('Fail');
   });
   return {
     total: arrayOfUrls.length,

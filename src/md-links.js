@@ -28,7 +28,8 @@ export const mdLinks = (path, options) => {
     }
     catch (e) {
       if (e.code === "ENOENT") {
-        reject (`Ruta incorrecta`);
+        let error=chalk.red.bold(`Ruta incorrecta`)
+        reject (error);
       }
     }
   })

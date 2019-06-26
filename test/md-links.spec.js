@@ -3,7 +3,7 @@ import process from 'process';
 import path from 'path';
 import fetchMock from '../__mocks__/node-fetch.js';
 import { mdLinks } from '../src/md-links.js';
-
+const chalk = require('chalk');
 fetchMock
   .mock('https://youtube.com', 200)
   .mock('https://github.com/user/repo/blob/branch/other_file.md', 404)
@@ -54,29 +54,29 @@ describe('funcion  que permite obtener  la información de validacion si lo soli
         href: 'https://youtube.com',
         text: 'a link',
         file: path.join(process.cwd(), 'prueba', 'prueba1.md'),
-        code: 200,
-        status: 'OK'
+        code: chalk.green.bold(200),
+        status: chalk.green.bold('OK')
       },
       {
         href: 'https://github.com/user/repo/blob/branch/other_file.md',
         text: 'a link',
         file: path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md'),
-        code: 404,
-        status: 'Fail'
+        code: chalk.red.bold(404),
+        status: chalk.red.bold('Fail')
       },
       {
         href: 'https://github.com/Judith//-',
         text: 'mi github',
         file: path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md'),
-        code: 404,
-        status: 'Fail'
+        code: chalk.red.bold(404),
+        status: chalk.red.bold('Fail')
       },
       {
         href: 'https://github.com/Judith',
         text: 'github Judith',
         file: path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md'),
-        code: 200,
-        status: 'OK'
+        code: chalk.green.bold(200),
+        status: chalk.green.bold('OK')
       }])
     })
   });
@@ -116,8 +116,14 @@ describe('funcion  que permite obtener  la información de validacion si lo soli
     })
   })
   it('Debería  retornar  un string ""ruta incorrecta"" si la ruta es incorrecta', (done) => {
-    return mdLinks(path.join(process.cwd(),'examen'), { validate: true }).catch ((err) =>{
-      expect(err).toBe('Ruta incorrecta')
+    return mdLinks(path.join(process.cwd(),'examen'), { validate: true}).catch ((err) =>{
+      expect(err).toBe(chalk.red.bold('Ruta incorrecta'))
+      done()
+  })
+  })
+  it('Debería  retornar  un string ""ruta incorrecta"" si la ruta es incorrecta', (done) => {
+    return mdLinks(path.join(process.cwd(),'examen'), { validate: false }).catch ((err) =>{
+      expect(err).toBe(chalk.red.bold('Ruta incorrecta'))
       done()
   })
   })

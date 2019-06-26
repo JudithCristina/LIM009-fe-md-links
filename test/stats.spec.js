@@ -3,6 +3,7 @@ import mock from 'mock-fs';
 import process from 'process';
 import path from 'path';
 import fetchMock from '../__mocks__/node-fetch.js';
+const chalk = require('chalk');
 fetchMock.config.sendAsJson = false;
 fetchMock
     .mock('https://youtube.com', 200)
@@ -53,29 +54,29 @@ describe('funcion  que permite obtener  el total de links y unicos links', () =>
             href: 'https://youtube.com',
             text: 'a link',
             file: path.join(process.cwd(), 'prueba', 'prueba1.md'),
-            code: 200,
-            status: 'OK'
+            code: chalk.green.bold(200),
+            status: chalk.green.bold('OK')
         },
         {
             href: 'https://github.com/user/repo/blob/branch/other_file.md',
             text: 'a link',
             file: path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md'),
-            code: 404,
-            status: 'Fail'
+            code: chalk.red.bold(404),
+            status: chalk.red.bold('Fail')
         },
         {
             href: 'https://github.com/Judith//-',
             text: 'mi github',
             file: path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md'),
-            code: 404,
-            status: 'Fail'
+            code: chalk.red.bold(404),
+            status: chalk.red.bold('Fail')
         },
         {
             href: 'https://github.com/Judith',
             text: 'github Judith',
             file: path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md'),
-            code: 200,
-            status: 'OK'
+            code: chalk.green.bold(200),
+            status: chalk.red.bold('OK')
         }]
         )).toEqual({ total: 4, unique: 4 })
     })
@@ -88,29 +89,29 @@ describe('funcion  que permite obtener  el total de links y unicos links', () =>
             href: 'https://youtube.com',
             text: 'a link',
             file: path.join(process.cwd(), 'prueba', 'prueba1.md'),
-            code: 200,
-            status: 'OK'
+            code: chalk.green.bold(200),
+            status: chalk.green.bold('OK')
         },
         {
             href: 'https://github.com/user/repo/blob/branch/other_file.md',
             text: 'a link',
             file: path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md'),
-            code: 404,
-            status: 'Fail'
+            code: chalk.red.bold(404),
+            status: chalk.red.bold('Fail')
         },
         {
             href: 'https://github.com/Judith//-',
             text: 'mi github',
             file: path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md'),
-            code: 404,
-            status: 'Fail'
+            code: chalk.red.bold(404),
+            status: chalk.red.bold('Fail')
         },
         {
             href: 'https://github.com/Judith',
             text: 'github Judith',
             file: path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md'),
-            code: 200,
-            status: 'OK'
+            code: chalk.green.bold(200),
+            status: chalk.green.bold('OK')
         }]
         )).toEqual({ total: 4, unique: 4, broken: 2 })
     })
