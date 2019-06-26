@@ -3,6 +3,7 @@ import { validatePathAbsolute } from './path-controller.js';
 import { pathMdLinks } from './validate.js';
 import { validateLinks } from './validate.js';
 import { arrayFileOfDirectory } from './path-controller.js';
+import chalk from 'chalk';
 
 const fs = require('fs');
 const path = require('path');
@@ -27,7 +28,7 @@ export const mdLinks = (path, options) => {
     }
     catch (e) {
       if (e.code === "ENOENT") {
-        reject("Ruta incorrecta")
+        reject (`Ruta incorrecta`);
       }
     }
   })

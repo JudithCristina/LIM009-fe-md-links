@@ -115,15 +115,10 @@ describe('funcion  que permite obtener  la información de validacion si lo soli
       expect(response).toEqual('No se encontraron archivos.md')
     })
   })
-})
-
-
-
- /* it('Debería  retornar  un string ""ruta incorrecta"" si la ruta es incorrecta', () => {
-    try {
-      mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/fenicito', { validate: true })
-    } catch (err) {
-      expect(err.code).toBe('ENOENT')
-    }
+  it('Debería  retornar  un string ""ruta incorrecta"" si la ruta es incorrecta', (done) => {
+    return mdLinks(path.join(process.cwd(),'examen'), { validate: true }).catch ((err) =>{
+      expect(err).toBe('Ruta incorrecta')
+      done()
   })
-})*/
+  })
+})

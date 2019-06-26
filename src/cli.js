@@ -21,8 +21,6 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
                     return routeCli
                 }
 
-            }).catch(e => {
-                return chalk.red.bold(e)
             })
     } else if (route !== undefined && parameter2 == '--validate' && parameter3 == undefined) {
         return mdLinks(route, { validate: true })
@@ -36,8 +34,6 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
                     const routeCli = newArray.toString().replace(/,/g, '\n');
                     return routeCli
                 }
-            }).catch(e => {
-                return chalk.red.bold(e)
             })
     } else if (route !== undefined && parameter2 == '--stats' && parameter3 == undefined) {
         return mdLinks(route, { validate: true })
@@ -49,9 +45,6 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
                     return `Total: ${stats.total}\nUnique: ${stats.unique}`
                 }
             })
-            .catch(e => {
-                return chalk.red.bold(e)
-            })
     } else if (route !== undefined && parameter2 == '--validate' && parameter3 == '--stats') {
         return mdLinks(route, { validate: true })
             .then(result1 => {
@@ -61,8 +54,6 @@ export const mdLinksCli = (route, parameter2, parameter3) => {
                     let stat = getValidateStatLinks(result1)
                     return `Total: ${stat.total}\nUnique: ${stat.unique}\nBroken: ${stat.broken}`
                 }
-            }).catch(e => {
-                return chalk.red.bold(e)
             })
     } else {
         return mdLinks(route, { validate: true })
