@@ -5,9 +5,6 @@ import { validateLinks } from './validate.js';
 import { arrayFileOfDirectory } from './path-controller.js';
 import chalk from 'chalk';
 
-const fs = require('fs');
-const path = require('path');
-
 export const mdLinks = (path, options) => {
   return new Promise((resolve, reject) => {
     try {
@@ -37,7 +34,7 @@ export const mdLinks = (path, options) => {
 
 
 
-/* mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/practica')
+/*mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md')
  .then((result)=>{
   console.log(result)
  })

@@ -1,7 +1,7 @@
 {
   "name": "judithq-md-links",
-  "version": "1.0.5",
-  "description": "md-linnks",
+  "version": "1.1.0",
+  "description": "md-links",
   "main": "./lib/md-links.js",
   "directories": {
     "test": "test"
