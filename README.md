@@ -19,11 +19,17 @@ en formato `Markdown`, para verificar los links que contengan y reportar
 algunas estadísticas.
 
 ## Versión
-1.1.0
+1.1.1
 
 ## Homepage
 
 [GitHub Judith Quiñones](https://github.com/JudithCristina/LIM009-fe-md-links)
+
+## Flujograma
+
+El siguiente flujograma representa el algoritmo que soluciona el problema, mostrando las fases de implementación y los procesos inmersos en cada una de estas. 
+ 
+![Diagrama de flujo Proyecto-Laboratoria](https://user-images.githubusercontent.com/47750969/60215625-a888d200-982d-11e9-8434-d56e9130f121.png)
 
 ## Instalación
 
@@ -35,13 +41,6 @@ algunas estadísticas.
  ```
  npm install --save judithq-md-links
  ```
-
-## Flujograma
-
-El siguiente flujograma representa el algoritmo que soluciona el problema, mostrando las fases de implementación y los procesos inmersos en cada una de estas. 
- 
-![Diagrama de flujo Proyecto-Laboratoria](https://user-images.githubusercontent.com/47750969/60215625-a888d200-982d-11e9-8434-d56e9130f121.png)
-
 
 ## Guía de uso
  ```
@@ -82,9 +81,9 @@ las siguientes propiedades:
 #### Ejemplo
 
 ```js
-import {mdLinks} from 'judithq-md-links'
+const mdLinks = require('judithq-md-links') 
 
-mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md')
+mdLinks.mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md')
  .then((result)=>{
   console.log(result)
  })
@@ -92,7 +91,7 @@ mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md')
    console.log(e)
  })
 
- mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {validate:true})
+mdLinks.mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {validate:true})
  .then((result)=>{
   console.log(result)
  })
@@ -100,7 +99,7 @@ mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md')
    console.log(e)
  })
 
-mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {validate:false})
+mdLinks.mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {validate:false})
  .then((result)=>{
   console.log(result)
  })
