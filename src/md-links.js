@@ -35,10 +35,10 @@ export const mdLinks = (path, options) => {
 
 
 
-mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md',{validate:true})
+/*mdLinks ('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md',{validate:true})
  .then((result)=>{
   console.log(result)
  })
   .catch((e)=>{
    console.log(e)
- })
+ })*/
