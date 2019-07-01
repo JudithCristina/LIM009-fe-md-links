@@ -29,17 +29,17 @@ export const validateLinks = (path1) => {
     return fetch(link.href)
       .then(res => {
         if (res.status <= 399) {
-          link.code = chalk.green.bold(res.status);
-          link.status = chalk.green.bold(res.statusText);
+          link.code = res.status;
+          link.status = res.statusText;
         } else {
-          link.code = chalk.red.bold(res.status);
-          link.status = chalk.red.bold('Fail');
+          link.code = res.status;
+          link.status = 'Fail';
         }
         return link
       })
       .catch(e => {
-        link.code = chalk.red.bold(e.code);
-        link.status =chalk.red.bold( 'Fail');
+        link.code = e.code;
+        link.status ='Fail';
         return link
       })
 

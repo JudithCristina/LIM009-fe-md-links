@@ -63,7 +63,7 @@ describe('funcion  que permite obtener --validate, --stads', () => {
       });
    it('Debería  retornar  un link con propiedad href,text,file,code y status', () => {
       return mdLinksCli(path.join(process.cwd(), 'prueba'), '--validate').then((response) => {
-        expect(response).toEqual(`href:https://youtube.com\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba1.md')}\ncode:${chalk.green.bold(200)}\nstatus:${chalk.green.bold('OK')}\n\nhref:https://github.com/user/repo/blob/branch/other_file.md\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2','judith.md')}\ncode:${chalk.red.bold(404)}\nstatus:${chalk.red.bold('Fail')}\n\nhref:https://github.com/Judith//-\ntext:[mi github]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:${chalk.red.bold(404)}\nstatus:${chalk.red.bold('Fail')}\n\nhref:https://github.com/Judith\ntext:[github Judith]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:${chalk.green.bold(200)}\nstatus:${chalk.green.bold('OK')}\n`)
+        expect(response).toEqual(`href:https://youtube.com\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba1.md')}\ncode:200\nstatus:OK\n\nhref:https://github.com/user/repo/blob/branch/other_file.md\ntext:[a link]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2','judith.md')}\ncode:404\nstatus:Fail\n\nhref:https://github.com/Judith//-\ntext:[mi github]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:404\nstatus:Fail\n\nhref:https://github.com/Judith\ntext:[github Judith]\nfile:${path.join(process.cwd(), 'prueba', 'prueba2', 'judith.md')}\ncode:200\nstatus:OK\n`)
       })
     });
     it("Debería  retornar  un  string 'No se encontraron archivos.md'", () => {

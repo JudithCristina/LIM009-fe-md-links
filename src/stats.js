@@ -52,7 +52,7 @@ export const getValidateStatLinks = (arrayOfObj) => {
   });
   let linksUnike = Array.from(new Set(arrayOfUrls));
   let arrayOfUrlsBrocken = arrayOfObj.filter(function (element) {
-    return element.status == chalk.red.bold('Fail');
+    return element.status == 'Fail';
   });
   return {
     total: arrayOfUrls.length,

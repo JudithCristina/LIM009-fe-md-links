@@ -19,7 +19,7 @@ en formato `Markdown`, para verificar los links que contengan y reportar
 algunas estadísticas.
 
 ## Versión
-1.1.1
+1.1.2
 
 ## Homepage
 
@@ -86,6 +86,7 @@ const mdLinks = require('judithq-md-links')
 mdLinks.mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md')
  .then((result)=>{
   console.log(result)
+   // => [{ href, text, file }]
  })
   .catch((e)=>{
    console.log(e)
@@ -94,6 +95,7 @@ mdLinks.mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md')
 mdLinks.mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {validate:true})
  .then((result)=>{
   console.log(result)
+   // => [{ href, text, file, code, status }]
  })
   .catch((e)=>{
    console.log(e)
@@ -102,6 +104,7 @@ mdLinks.mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {v
 mdLinks.mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {validate:false})
  .then((result)=>{
   console.log(result)
+   // => [{ href, text, file }]
  })
   .catch((e)=>{
    console.log(e)
@@ -114,7 +117,7 @@ mdLinks.mdLinks('/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md', {v
  ```
 md-links <path> <options>
  ```
-Si desea retornar las propiedades **file, href y text**, ejecute: 
+Si desea retornar las propiedades **href, text y file**, ejecute: 
 
 **$ judithq-md-links ./README.md**
 ```sh
@@ -130,7 +133,7 @@ href:https://github.com/JudithCristina/LIM009-fe-md-links/files/3331762/Diagrama
 text:[Diagrama de flujo Proyecto-Laboratoria(1).pdf]
 file:/home/judith-c-q-i/Escritorio/LIM009-fe-md-links/README.md
 ```
-Si desea retornar las propiedades **file, href, text, status y value**, ejecute:
+Si desea retornar las propiedades **file, href, text, code y status**, ejecute:
 
 **$ judithq-md-links ./README.md --validate**
 ```sh 
