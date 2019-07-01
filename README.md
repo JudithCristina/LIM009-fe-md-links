@@ -19,7 +19,7 @@ en formato `Markdown`, para verificar los links que contengan y reportar
 algunas estadísticas.
 
 ## Versión
-1.1.3
+1.1.4
 
 ## Homepage
 
